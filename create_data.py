@@ -1,3 +1,5 @@
+import pandas as pd
+import local_sub
 import paho.mqtt.client as mqtt
 import time
 
@@ -43,10 +45,25 @@ if __name__ == '__main__':
     client.connect(host="broker.hivemq.com", port=1883, keepalive=60)
     client.loop_start()
 
+    # Assign labels for the elements 
+    # The two distances come first followed by the correct location on the grid
+    labels = ['dist1', 'dist2', 'location']  
+
     while True:
         while connection != 0:
             time.sleep(1)
-            
-        
+
+        square = input("Please enter the square: ")
         time.sleep(1)
+        dist = [sensor_dist1, sensor_dist2, int(square)]
+
+        # Add the distance to the csv file
+        distance = dict(zip(labels, dist)) 
+        data = pd.DataFrame([distance])
+        data.to_csv('distances.csv', mode='a', header=False, index=False)
+
+
+        time.sleep(1)
+
+
 
