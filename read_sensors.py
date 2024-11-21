@@ -1,7 +1,6 @@
 import sys
 import time
 import grovepi
-from grove_rgb_lcd import *
 
 sys.path.append('../../Software/Python/')
 
