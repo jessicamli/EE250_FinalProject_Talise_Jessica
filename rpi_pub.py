@@ -1,3 +1,5 @@
+# To be run on the raspberry pi device
+
 import paho.mqtt.client as mqtt
 import time
 import sys

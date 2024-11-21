@@ -1,3 +1,5 @@
+# create_data.py collects data into a csv file to use to train the model
+
 import pandas as pd
 import local_sub
 import paho.mqtt.client as mqtt
@@ -22,14 +24,16 @@ def on_connect(client, userdata, flags, rc):
 # Custom callbacks
 def ultrasonic_1_callback(client, userdata, msg):
     # print out the distance from the ultrasonic Ranger
-    print("First Distance: " + str(msg.payload, "utf-8") + " cm")
+    # print("First Distance: " + str(msg.payload, "utf-8") + " cm")
+    # Save the distance
     global sensor_dist1
     sensor_dist1 = int(msg.payload)
 
 
 def ultrasonic_2_callback(client, userdata, msg):
     # print out the distance from the ultrasonic Ranger
-    print("Second Distance: " + str(msg.payload, "utf-8") + " cm")
+    # print("Second Distance: " + str(msg.payload, "utf-8") + " cm")
+    # Save the distance
     global sensor_dist2
     sensor_dist2 = int(msg.payload)
 

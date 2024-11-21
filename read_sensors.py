@@ -1,3 +1,5 @@
+# read_sensors contains a function that reads the raspberry pi sensors using the grovepi functions
+
 import sys
 import time
 import grovepi

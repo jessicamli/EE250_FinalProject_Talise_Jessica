@@ -1,3 +1,5 @@
+# Generic code to create a mqtt connection with the rpi
+
 import paho.mqtt.client as mqtt
 import time
 
