@@ -23,8 +23,7 @@ if __name__ == '__main__':
 
     while True:
         # Read ultrasonic ranger
-        #distance = read_sensors()
-        distance = [10, 15]
+        distance = read_sensors()
         
         # Send a publish 
         client.publish("talisejessica/ultrasonicRanger1", str(distance[0]))
