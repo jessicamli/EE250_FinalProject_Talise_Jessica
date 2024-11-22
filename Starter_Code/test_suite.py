@@ -50,17 +50,17 @@ while True:
   blink_led(chan_list, 0.2, 4) 
   
   # Read the sound output for 5 seconds
-  for l in range(0, 50, 1):
-    led_on = 0
+  #for l in range(0, 50, 1):
+   # led_on = 0
     # get reading from adc on the sound sensor
-    sound = mcp.read_adc(1)
-    print("Raw Value: " + str(sound))
-    if sound < sound_threshold:
-      led_on = 0
-    else:
-      led_on = 1
-    if led_on == 1:
-      GPIO.output(chan_list, GPIO.HIGH)
-    else:
-      GPIO.output(chan_list, GPIO.LOW)
-    time.sleep(0.1)
+   # sound = mcp.read_adc(1)
+   # print("Raw Value: " + str(sound))
+   # if sound < sound_threshold:
+  #    led_on = 0
+  #  else:
+   #   led_on = 1
+   # if led_on == 1:
+   #   GPIO.output(chan_list, GPIO.HIGH)
+   # else:
+   #   GPIO.output(chan_list, GPIO.LOW)
+   # time.sleep(0.1)
