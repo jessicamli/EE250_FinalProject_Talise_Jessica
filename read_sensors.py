@@ -7,8 +7,8 @@ import grovepi
 sys.path.append('../../Software/Python/')
 
 def read_sensors():
-  UltrasonicPORT_1 = 4    # D4 port for the first ultrasonic sensor
-  UltrasonicPORT_2 = 5 # Not sure which one yet
+  UltrasonicPORT_1 = 7    # D4 port for the first ultrasonic sensor
+  UltrasonicPORT_2 = 8 # Not sure which one yet
   dist1 = 0
   dist2 = 0
 
