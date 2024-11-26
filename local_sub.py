@@ -4,6 +4,8 @@
 import paho.mqtt.client as mqtt
 import time
 from result_display_cli import send_to_http 
+import numpy as np
+from tensorflow.keras.models import load_model
 
 sensor_dist1 = 0
 sensor_dist2 = 0
@@ -53,11 +55,19 @@ if __name__ == '__main__':
         while connection != 0:
             time.sleep(1)
         
-        if square == 4:
+        # Load the model and figure out the predicted square
+        model = load_model('distmodel.h5')
+        prediction = model.predict(np.array([[sensor_dist1, sensor_dist2]]))
+        prediction = np.round(prediction)
+        prediction = prediction.flatten()
+
+        square = prediction[0]
+
+        if square > 4:
+            square = 4
+        elif square < 1:
             square = 1
-        else:
-            square += 1
-        
+
         # This code sends to the http server and displays the data
         response = send_to_http(square)
         # Print the response from the server to check for erros
