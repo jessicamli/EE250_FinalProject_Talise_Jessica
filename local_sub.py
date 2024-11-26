@@ -66,7 +66,7 @@ if __name__ == '__main__':
         prediction = model.predict(np.array(input_data))
         prediction = prediction.flatten()
 
-        location = np.argmax(prediction, axis=1)
+        location = np.argmax(prediction)
 
         # The actual ordering from the output given is [2 0 1 3] so the order must be changed
 
