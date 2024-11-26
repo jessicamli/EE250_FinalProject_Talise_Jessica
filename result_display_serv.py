@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-grid_data = {}
+grid_data = {"grid": ["Something could be broken"]}
 
 @app.route('/')
 def index():
