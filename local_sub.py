@@ -5,7 +5,7 @@ import paho.mqtt.client as mqtt
 import time
 from result_display_cli import send_to_http 
 import numpy as np
-#from tensorflow.keras.models import load_model
+from tensorflow.keras.models import load_model
 
 sensor_dist1 = 0
 sensor_dist2 = 0
