@@ -61,15 +61,21 @@ if __name__ == '__main__':
         prediction = model.predict(np.array([[sensor_dist1, sensor_dist2]]))
         prediction = prediction.flatten()
 
-        square = np.argmax(prediction)
+        location = np.argmax(prediction)
+
+        # The actual ordering from the output given is [2 0 1 3] so the order must be changed
 
         print(prediction)
-        print(square)
+        print(location)
 
-        if square > 4:
-            square = 4
-        elif square < 1:
+        if location == 0:
+            square = 2
+        elif location == 1:
+            square = 3
+        elif location == 2:
             square = 1
+        elif location == 3:
+            square = 4
 
         # This code sends to the http server and displays the data
         response = send_to_http(square)
