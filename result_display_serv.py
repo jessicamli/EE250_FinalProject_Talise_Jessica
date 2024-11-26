@@ -1,3 +1,5 @@
+# File to be run in a terminal, creates a flask server for http communication to display the output
+
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)

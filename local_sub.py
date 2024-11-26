@@ -1,5 +1,6 @@
 # Code to figure out and display what square the object is in. Yay!
 # Type http://127.0.0.1:5000/ into browser to display
+# Requires distmodel.h5 file
 
 import paho.mqtt.client as mqtt
 import time
@@ -7,6 +8,7 @@ from result_display_cli import send_to_http
 import numpy as np
 from tensorflow.keras.models import load_model
 
+# Define global variables to change later
 sensor_dist1 = 0
 sensor_dist2 = 0
 connection = -1

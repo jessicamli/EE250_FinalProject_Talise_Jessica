@@ -37,11 +37,6 @@ def ultrasonic_2_callback(client, userdata, msg):
     global sensor_dist2
     sensor_dist2 = int(msg.payload)
 
-def get_distance():
-    distance = [sensor_dist1, sensor_dist2]
-    print(sensor_dist1)
-    return distance
-
 if __name__ == '__main__':
     client = mqtt.Client()
     # client.on_message = on_message
@@ -57,11 +52,12 @@ if __name__ == '__main__':
         while connection != 0:
             time.sleep(1)
 
+        # Request User input for the square the object is placed
         square = input("Please enter the square: ")
         time.sleep(1)
         dist = [sensor_dist1, sensor_dist2, int(square)]
 
-        # Add the distance to the csv file
+        # Add the distance and correct label to the csv file
         distance = dict(zip(labels, dist)) 
         data = pd.DataFrame([distance])
         data.to_csv('distances.csv', mode='a', header=False, index=False)

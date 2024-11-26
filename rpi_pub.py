@@ -1,4 +1,5 @@
 # To be run on the raspberry pi device
+# communicates with the computer via MQTT
 
 import paho.mqtt.client as mqtt
 import time
