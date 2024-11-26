@@ -59,9 +59,9 @@ if __name__ == '__main__':
         # Load the model and figure out the predicted square
         model = load_model('distmodel.h5')
         prediction = model.predict(np.array([[sensor_dist1, sensor_dist2]]))
-        print("hi" + prediction)
+        print(prediction)
         prediction = np.round(prediction)
-        print("aaaa" + prediction)
+        print(prediction)
         prediction = prediction.flatten()
 
         square = prediction[0]
