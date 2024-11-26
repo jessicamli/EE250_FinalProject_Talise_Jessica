@@ -5,7 +5,7 @@ import paho.mqtt.client as mqtt
 import time
 from result_display_cli import send_to_http 
 import numpy as np
-from tensorflow.keras.models import load_model
+#from tensorflow.keras.models import load_model
 
 sensor_dist1 = 0
 sensor_dist2 = 0
@@ -57,11 +57,16 @@ if __name__ == '__main__':
         
 
         # Load the model and figure out the predicted square
+        dist1 = np.array([sensor_dist1])  
+        dist2 = np.array([sensor_dist2])  
+
+        input_data = np.stack([dist1, dist2], axis=-1)
+
         model = load_model('distmodel.h5')
-        prediction = model.predict(np.array([[sensor_dist1, sensor_dist2]]))
+        prediction = model.predict(np.array(input_data))
         prediction = prediction.flatten()
 
-        location = np.argmax(prediction)
+        location = np.argmax(prediction, axis=1)
 
         # The actual ordering from the output given is [2 0 1 3] so the order must be changed
 
@@ -78,7 +83,7 @@ if __name__ == '__main__':
          #   square = 4
 
         # This code sends to the http server and displays the data
-        response = send_to_http(square)
+        response = send_to_http(location)
         # Print the response from the server to check for erros
        # if response.status_code == 200:
          #   print("Yay, you did it!")
