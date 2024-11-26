@@ -73,14 +73,15 @@ if __name__ == '__main__':
         print(prediction)
         print(location)
 
-        #if location == 0:
-         #   square = 2
-        #elif location == 1:
-          #  square = 3
-       #elif location == 2:
-          #  square = 1
-        #elif location == 3:
-         #   square = 4
+        if location == 0:
+            square = 2
+        elif location == 1:
+            square = 3
+        elif location == 2:
+            square = 1
+        elif location == 3:
+            square = 4
+
 
         # This code sends to the http server and displays the data
         response = send_to_http(location)
