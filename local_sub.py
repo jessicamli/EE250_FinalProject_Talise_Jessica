@@ -80,10 +80,10 @@ if __name__ == '__main__':
         # This code sends to the http server and displays the data
         response = send_to_http(square)
         # Print the response from the server to check for erros
-       # if response.status_code == 200:
-         #   print("Yay, you did it!")
-        #else:
-         #   print("Not so great....", response.status_code)
+        if response.status_code == 200:
+            print("Yay, you did it!")
+        else:
+            print("Not so great....", response.status_code)
    
         
         time.sleep(1)
