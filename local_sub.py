@@ -55,8 +55,6 @@ if __name__ == '__main__':
         while connection != 0:
             time.sleep(1)
         
-        print(sensor_dist1)
-        print("I hope this works")
 
         # Load the model and figure out the predicted square
         model = load_model('distmodel.h5')
@@ -65,6 +63,8 @@ if __name__ == '__main__':
         prediction = prediction.flatten()
 
         square = prediction[0]
+        print(prediction)
+        print(square)
 
         if square > 4:
             square = 4
@@ -78,8 +78,7 @@ if __name__ == '__main__':
             print("Yay, you did it!")
         else:
             print("Not so great....", response.status_code)
-
-            
+   
         
         time.sleep(1)
 
